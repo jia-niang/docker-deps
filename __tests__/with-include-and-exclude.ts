@@ -54,7 +54,7 @@ describe('Usage with with-include-and-exclude', () => {
   })
 
   test('[CLI] Use the "include" option (array)', () => {
-    execSync(cmd + ' --include include.js *.json')
+    execSync(cmd + ` --include include.js "*.json"`)
 
     expect.assertions(2)
     expect(existsSync(resolve(cwd, '.docker-deps/include.js'))).toBe(true)
