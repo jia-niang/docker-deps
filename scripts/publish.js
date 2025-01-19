@@ -22,7 +22,7 @@ console.log(`Current version: ${version}, and npm registry version: ${npmVersion
 console.log(shouldPublish ? `Ready for publish.` : `Skip publish.`)
 
 if (shouldPublish) {
-  execSync(`pnpm publish`)
+  execSync(`npm publish`)
 
   console.log(`Publish done.`)
 }
