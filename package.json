@@ -1,6 +1,6 @@
 {
   "name": "docker-deps",
-  "version": "0.2.0",
+  "version": "0.1.1",
   "description": "Extract the minimal dependency definition files needed to build Docker image, also compatible with monorepo.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -33,10 +33,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/paperplane-npm/docker-deps/"
+    "url": "https://github.com/jia-niang/docker-deps/"
   },
   "bugs": {
-    "url": "https://github.com/paperplane-npm/docker-deps/issues"
+    "url": "https://github.com/jia-niang/docker-deps/issues"
   },
   "dependencies": {
     "commander": "^13.0.0",
