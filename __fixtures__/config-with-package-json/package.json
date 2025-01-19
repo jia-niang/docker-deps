@@ -1,0 +1,10 @@
+{
+  "name": "config-with-package-json",
+  "docker-deps": {
+    "output": ".customize-output",
+    "include": [
+      "include.js"
+    ],
+    "exclude": ".npmrc"
+  }
+}

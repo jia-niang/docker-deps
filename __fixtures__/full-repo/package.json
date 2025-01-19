@@ -1,0 +1,6 @@
+{
+  "name": "full-repo",
+  "dependencies": {
+    "full-repo": "file:"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "monorepo-with-deps",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "dependencies": {
+    "@monorepo-with-deps/subpackage-c": "workspace:*"
+  }
+}

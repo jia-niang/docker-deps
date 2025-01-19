@@ -1,0 +1,6 @@
+{
+  "name": "single-repo",
+  "dependencies": {
+    "single-repo": "file:"
+  }
+}

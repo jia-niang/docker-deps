@@ -1,0 +1,6 @@
+{
+  "name": "@with-include-and-exclude/subpackage-a",
+  "dependencies": {
+    "@with-include-and-exclude/subpackage-a": "file:"
+  }
+}

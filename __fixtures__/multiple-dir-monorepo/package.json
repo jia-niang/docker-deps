@@ -1,0 +1,11 @@
+{
+  "name": "multiple-workspace-dir-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "dependencies": {
+    "multiple-workspace-dir-monorepo": "file:"
+  }
+}

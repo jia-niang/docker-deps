@@ -1,0 +1,87 @@
+{
+  "name": "docker-deps",
+  "version": "0.1.0",
+  "description": "Extract the minimal dependency definition files needed to build Docker image, also compatible with monorepo.",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "bin": {
+    "docker-deps": "dist/docker-deps.js"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "dev": "tsc -w",
+    "build": "tsc",
+    "test": "jest",
+    "pretest": "npm run build",
+    "prepublishOnly": "npm run build",
+    "release": "node scripts/publish.js",
+    "format": "prettier --list-different \"./{src,__tests__}/**/*.ts\"",
+    "lint": "eslint",
+    "check-types": "tsc --noEmit"
+  },
+  "keywords": [
+    "CLI",
+    "Docker",
+    "Dockerfile",
+    "monorepo",
+    "package.json",
+    "package-lock.json",
+    "deps",
+    "Dependencies"
+  ],
+  "author": "jia-niang <1@paperplane.cc>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paperplane-npm/cli-docker-deps/"
+  },
+  "bugs": {
+    "url": "https://github.com/paperplane-npm/cli-docker-deps/issues"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "glob": "^11.0.1",
+    "picocolors": "^1.1.1",
+    "read-pkg": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-typescript": "^7.26.0",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cz-commitlint": "^19.6.1",
+    "@eslint/js": "^9.18.0",
+    "@jest/globals": "^29.7.0",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.1",
+    "@types/node": "^22.10.5",
+    "babel-jest": "^29.7.0",
+    "commitizen": "^4.3.1",
+    "eslint": "^9.18.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.14.0",
+    "husky": "^9.1.7",
+    "inquirer": "^9.3.7",
+    "jest": "^29.7.0",
+    "lint-staged": "^15.3.0",
+    "prettier": "^3.4.2",
+    "semver": "^7.6.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3",
+    "typescript-eslint": "^8.19.1"
+  },
+  "files": [
+    "dist/**"
+  ],
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  },
+  "lint-staged": {
+    "*.{ts}": [
+      "eslint"
+    ]
+  }
+}

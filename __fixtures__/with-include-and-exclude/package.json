@@ -1,0 +1,7 @@
+{
+  "name": "with-include-and-exclude",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}

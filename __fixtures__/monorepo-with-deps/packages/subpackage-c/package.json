@@ -1,0 +1,6 @@
+{
+  "name": "@monorepo-with-deps/subpackage-c",
+  "dependencies": {
+    "@monorepo-with-deps/subpackage-c": "file:"
+  }
+}

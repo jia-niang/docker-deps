@@ -1,0 +1,6 @@
+{
+  "name": "@multiple-workspace-dir-monorepo/app-a",
+  "dependencies": {
+    "@multiple-workspace-dir-monorepo/app-a": "file:"
+  }
+}

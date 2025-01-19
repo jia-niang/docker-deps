@@ -1,0 +1,49 @@
+kind: pipeline
+name: default
+
+workspace:
+  path: /source
+
+steps:
+  - name: install
+    image: node:20.13.0
+    volumes:
+      - name: pnpm-cache
+        path: /source/.pnpm-store
+    commands:
+      - npm i -g pnpm
+      - pnpm i
+    environment:
+      HUSKY: 0
+
+  - name: check
+    image: node:20.13.0
+    commands:
+      - npm run format
+      - npm run lint
+      - npm run check-types
+
+  - name: test
+    image: node:20.13.0
+    commands:
+      - npm run test
+
+  - name: auth
+    image: robertstettner/drone-npm-auth
+    settings:
+      token:
+        from_secret: NPM_TOKEN
+
+  - name: publish
+    image: node:20.13.0
+    commands:
+      - npm run release
+
+volumes:
+  - name: pnpm-cache
+    host:
+      path: /root/.pnpm-cache
+
+trigger:
+  branch:
+    - main

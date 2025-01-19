@@ -1,0 +1,6 @@
+{
+  "name": "@monorepo-with-deps/app-a",
+  "dependencies": {
+    "@monorepo-with-deps/subpackage-a": "workspace:*"
+  }
+}

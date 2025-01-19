@@ -1,0 +1,6 @@
+{
+  "name": "@multiple-workspace-dir-monorepo/subpackage-b",
+  "dependencies": {
+    "@multiple-workspace-dir-monorepo/subpackage-b": "file:"
+  }
+}
