@@ -1,6 +1,6 @@
 {
   "name": "docker-deps",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Extract the minimal dependency definition files needed to build Docker image, also compatible with monorepo.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -29,6 +29,9 @@
     "deps",
     "Dependencies"
   ],
+  "engines": {
+    "node": "20 || >=22"
+  },
   "author": "jia-niang <1@paperplane.cc>",
   "license": "MIT",
   "repository": {

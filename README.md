@@ -28,6 +28,8 @@ yarn dlx docker-deps # using yarn
 pnpm dlx docker-deps # using pnpm
 ```
 
+(You may want to add the `-y` parameter to avoid interactive confirmation.)
+
 After executing the command, a `.docker-deps` directory will be created in the root of the project, containing a minimal set of files necessary for the "install dependencies" step, such as `package.json`, `.npmrc`, `yarn.lock`, and others.
 
 **Please configure the execution of this command within the CI/CD pipeline steps.**

@@ -24,6 +24,8 @@ yarn dlx docker-deps # 使用 yarn
 pnpm dlx docker-deps # 使用 pnpm
 ```
 
+（可能需要添加 `-y` 参数来避免交互式确认）
+
 执行命令后，会在项目根目录创建 `.docker-deps` 目录，其中会包含 “安装依赖” 步骤所需要的最小文件集合；  
 例如 `package.json`、`.npmrc`、`yarn.lock` 等。
 
