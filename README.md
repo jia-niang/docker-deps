@@ -152,15 +152,15 @@ In the following configuration, any relative directories that need to be provide
 
 Options:
 
-| CLI Option       | API Field    | Type          | Default          | Introduction                                                                                                                                    |
-| ---------------- | ------------ | ------------- | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `-o` `--output`  | `output`     | `string`      | `".docker-deps"` | Specify output directory                                                                                                                        |
+| CLI Option       | API Field    | Type          | Default          | Introduction                                                                                                                                                                                         |
+| ---------------- | ------------ | ------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `-o` `--output`  | `output`     | `string`      | `".docker-deps"` | Specify output directory                                                                                                                                                                             |
 | `-f` `--filter`  | `filter`     | `string`      | -                | Available in monorepo, provide a package name to extract only this package and its dependencies, similar to the `-F` parameter of `turbo prune`, if not provided, all sub-packages will be extracted |
-| `-d` `--dry-run` | `dryRun`     | `boolean`     | `false`          | Only print actions to the console without actually executing them, ignore the `quiet` option                                                                               |
-| `-q` `--quiet`   | `quiet`      | `boolean`     | `false`          | Disable most console output, but will not disable output in `dryRun` mode                                                                       |
-| `--include`      | `include`    | `string[]`    | -                | Specify files to be copied additionally, using glob pattern                                                                                     |
-| `--exclude`      | `exclude`    | `string[]`    | -                | Exclude specific files when copying, using glob pattern, separated by spaces, higher priority than include                                      |
-| 不适用           | `configGlob` | `GlobOptions` | -                | Passed through as a configuration option for `glob`                                                                                             |
+| `-d` `--dry-run` | `dryRun`     | `boolean`     | `false`          | Only print actions to the console without actually executing them, ignore the `quiet` option                                                                                                         |
+| `-q` `--quiet`   | `quiet`      | `boolean`     | `false`          | Disable most console output, but will not disable output in `dryRun` mode                                                                                                                            |
+| `--include`      | `include`    | `string[]`    | -                | Specify files to be copied additionally, using glob pattern                                                                                                                                          |
+| `--exclude`      | `exclude`    | `string[]`    | -                | Exclude specific files when copying, using glob pattern, separated by spaces, higher priority than include                                                                                           |
+| -                | `configGlob` | `GlobOptions` | -                | Passed through as a configuration option for `glob`                                                                                                                                                  |
 
 ---
 

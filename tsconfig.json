@@ -5,8 +5,6 @@
     "outDir": "./dist",
     "baseUrl": "./src",
     "declaration": true,
-    "declarationMap": true,
-    "sourceMap": true,
     "strict": true,
     "removeComments": false,
     "allowSyntheticDefaultImports": true,
