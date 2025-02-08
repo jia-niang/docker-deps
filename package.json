@@ -13,7 +13,7 @@
     "test": "npm run build && npx jest",
     "format": "prettier --list-different \"./{src,__tests__}/**/*.ts\"",
     "lint": "eslint",
-    "check-types": "tsc --noEmit",
+    "check-types": "npm run build && tsc --noEmit",
     "changeset": "changeset",
     "publish": "npm run changeset version && npm run changeset publish"
   },

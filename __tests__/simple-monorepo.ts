@@ -1,4 +1,4 @@
-import { dockerDeps, dockerDepsSync } from '../src'
+import { dockerDeps, dockerDepsSync } from '../dist/index'
 import { afterEach, describe, expect, test } from '@jest/globals'
 import { execSync } from 'child_process'
 import { existsSync, rmSync } from 'fs'
