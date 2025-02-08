@@ -42,7 +42,7 @@ describe('Usage with simple-monorepo', () => {
     try {
       dockerDepsSync({ cwd, filter: 'no-exist' })
     } catch (error) {
-      expect(error.message.startsWith('No monorepo subpackage named')).toBe(true)
+      expect((error as Error).message.startsWith('No monorepo subpackage named')).toBe(true)
     }
   })
 

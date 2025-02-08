@@ -4,6 +4,15 @@ name: default
 workspace:
   path: /source
 
+volumes:
+  - name: pnpm-cache
+    host:
+      path: /root/.pnpm-cache
+
+trigger:
+  ref:
+    - refs/heads/**
+
 steps:
   - name: install
     image: node:20.13.0
@@ -33,17 +42,14 @@ steps:
     settings:
       token:
         from_secret: NPM_TOKEN
+    when:
+      branch:
+        - main
 
   - name: publish
     image: node:20.13.0
     commands:
-      - npm run release
-
-volumes:
-  - name: pnpm-cache
-    host:
-      path: /root/.pnpm-cache
-
-trigger:
-  branch:
-    - main
+      - npm run publish
+    when:
+      branch:
+        - main

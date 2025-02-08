@@ -2,7 +2,7 @@
 
 [![Build Status](https://drone.paperplane.cc/api/badges/jia-niang/docker-deps/status.svg)](https://drone.paperplane.cc/jia-niang/docker-deps) [![npm](https://img.shields.io/npm/v/docker-deps)](https://www.npmjs.com/package/docker-deps) [![NPM Downloads](https://img.shields.io/npm/dm/docker-deps.svg?style=flat)](https://npmcharts.com/compare/docker-deps?minimal=true)
 
-Read this in other languages: English | [简体中文](https://github.com/jia-niang/docker-deps/blob/main/README.zh-CN.md)
+Read this in other languages: English | [简体中文](./README.zh-CN.md)
 
 ---
 

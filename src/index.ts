@@ -139,7 +139,7 @@ export function dockerDepsSync(config?: Config): Result {
       const deps = new Set<string>()
       Object.entries({ ...packageJson.dependencies, ...packageJson.devDependencies }).forEach(
         ([pkgName, pkgVersion]) => {
-          if (pkgVersion?.startsWith('workspace:')) {
+          if (String(pkgVersion).startsWith('workspace:')) {
             deps.add(pkgName)
           }
         }
