@@ -49,6 +49,8 @@ steps:
   - name: publish
     image: node:20.13.0
     commands:
+      - npm i -g pnpm
+      - pnpm i
       - npm run publish
     when:
       branch:
