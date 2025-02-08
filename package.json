@@ -1,6 +1,6 @@
 {
   "name": "docker-deps",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Extract the minimal dependency definition files needed to build Docker image, also compatible with monorepo.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -10,12 +10,13 @@
   "scripts": {
     "prepare": "husky",
     "build": "rollup -c",
-    "test": "npm run build && npx jest",
+    "test": "npx jest",
+    "pretest": "npm run build",
+    "precheck-types": "npm run build",
     "format": "prettier --list-different \"./{src,__tests__}/**/*.ts\"",
     "lint": "eslint",
-    "check-types": "npm run build && tsc --noEmit",
-    "changeset": "changeset",
-    "publish": "npm run changeset version && npm run changeset publish"
+    "check-types": "tsc --noEmit",
+    "prepublishOnly": "npm run build"
   },
   "keywords": [
     "CLI",
@@ -49,7 +50,6 @@
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-typescript": "^7.26.0",
-    "@changesets/cli": "^2.27.12",
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@commitlint/cz-commitlint": "^19.6.1",
