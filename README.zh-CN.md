@@ -6,7 +6,7 @@
 
 此项目受到 [`turbo`](https://www.npmjs.com/package/turbo) 的 [`turbo prune`](https://turbo.build/repo/docs/reference/prune) 命令的启发，实现了其带有 `--docker` 参数时的功能。
 
-> 此包适用于 “使用 Dockerfile 构建 Docker 镜像” 的场景，通常运行在 CI/CD 步骤中。
+此包适用于 “使用 Dockerfile 构建 Docker 镜像” 的场景，通常运行在 CI/CD 步骤中。
 
 特性：
 
@@ -19,19 +19,17 @@
 免安装运行：
 
 ```bash
-npx docker-deps # 使用 npm
-yarn dlx docker-deps # 使用 yarn
-pnpm dlx docker-deps # 使用 pnpm
+npx -y docker-deps
 ```
-
-（可能需要添加 `-y` 参数来避免交互式确认）
 
 执行命令后，会在项目根目录创建 `.docker-deps` 目录，其中会包含 “安装依赖” 步骤所需要的最小文件集合；  
 例如 `package.json`、`.npmrc`、`yarn.lock` 等。
 
-**请在 CI/CD 的步骤中配置执行这条命令。**
+---
 
-然后，修改你的 `.gitignore`，添加一行：
+步骤 1，**在 CI/CD 的步骤中配置执行这条命令。**
+
+步骤 2，修改你的 `.gitignore`，添加一行：
 
 ```
 .docker-deps
@@ -39,7 +37,7 @@ pnpm dlx docker-deps # 使用 pnpm
 
 > 注意，千万不要把这一行添加到 `.dockerignore`。
 
-然后，修改你的 `Dockerfile`：
+步骤 3，修改你的 `Dockerfile`：
 
 修改前：
 
@@ -48,7 +46,7 @@ pnpm dlx docker-deps # 使用 pnpm
 
 COPY . <工作区目录>
 RUN npm i
-RUN npm build
+RUN npm run build
 
 # ...
 ```
@@ -62,12 +60,16 @@ COPY .docker-deps <工作区目录>
 RUN npm i
 
 COPY . <工作区目录>
-RUN npm build
+RUN npm run build
 
 # ...
 ```
 
-以上代码作为示例，你可以根据需要调整 `npm build` 等命令。
+以上代码作为示例，你可以根据需要调整 `npm run build` 等命令。
+
+步骤 4，完成！
+
+---
 
 修改后的 `Dockerfile` 会首先提取出安装依赖所需的最小文件集合，并把它添加到工作区，然后安装依赖；依赖安装完成后，再将源代码拷贝到工作区。  
 当如此做后，只要项目的依赖项没有发生更改，直到 `RUN npm i` 这一步，都可以被 Docker 缓存，在多次构建中省略安装依赖所花费的时间和开销。

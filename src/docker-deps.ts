@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-import { dockerDepsSync } from './index'
 import { Command } from 'commander'
+
+import { dockerDepsSync } from '.'
 
 const program = new Command()
 

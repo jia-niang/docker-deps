@@ -10,7 +10,7 @@ Extract only the essential files needed for the "install dependencies" step to o
 
 This project is inspired by [`turbo`](https://www.npmjs.com/package/turbo)'s [`turbo prune <subpackage> --docker`](https://turbo.build/repo/docs/reference/prune) command.
 
-> This package is designed for process "building Docker images using a Dockerfile", and is typically executed within CI/CD pipelines.
+This package is designed for process "building Docker images using a Dockerfile", and is typically executed within CI/CD pipelines.
 
 Features:
 
@@ -23,18 +23,16 @@ Features:
 Run without installation:
 
 ```bash
-npx docker-deps # using npm
-yarn dlx docker-deps # using yarn
-pnpm dlx docker-deps # using pnpm
+npx -y docker-deps
 ```
-
-(You may want to add the `-y` parameter to avoid interactive confirmation.)
 
 After executing the command, a `.docker-deps` directory will be created in the root of the project, containing a minimal set of files necessary for the "install dependencies" step, such as `package.json`, `.npmrc`, `yarn.lock`, and others.
 
-**Please configure the execution of this command within the CI/CD pipeline steps.**
+---
 
-Then, edit your `.gitignore` by appending the following line:
+Step 1, **Please configure the execution of this command within the CI/CD pipeline steps.**
+
+Step 2, Edit your `.gitignore` by appending the following line:
 
 ```
 .docker-deps
@@ -42,7 +40,7 @@ Then, edit your `.gitignore` by appending the following line:
 
 > NOTE: **NEVER** add this line to `.dockerignore`.
 
-Then, edit your `.gitignore`:
+Step 3, Edit your `.gitignore`:
 
 Before editing:
 
@@ -51,7 +49,7 @@ Before editing:
 
 COPY . <WORKDIR>
 RUN npm i
-RUN npm build
+RUN npm run build
 
 # ...
 ```
@@ -65,12 +63,16 @@ COPY .docker-deps <WORKDIR>
 RUN npm i
 
 COPY . <WORKDIR>
-RUN npm build
+RUN npm run build
 
 # ...
 ```
 
 The above code is used as an example, you can edit commands such as `npm build` as needed.
+
+Step 4, Done!
+
+---
 
 The edited `Dockerfile` will first extract the minimum set of files required to install dependencies, add it to the workspace, and then install the dependencies; after the dependency installation is completed, the source code will be copied to the workspace.
 
@@ -95,7 +97,7 @@ npx docker-deps path/to/project
 
 ---
 
-CLI usage also supports various parameters. For example, you can use `-f` or `--filter` to filter specific monorepo subpackages, and you can use `-o` or `--output` to customize the output directory:
+CLI usage also supports various parameters. For example, you can use `-f` or `--filter` to filter specific monorepo subpackage, and you can use `-o` or `--output` to customize the output directory:
 
 ```bash
 npx docker-deps -o other-output-dir -f @repo/web

@@ -1,6 +1,6 @@
-import { dockerDepsSync } from '../dist/index'
 import { afterEach, describe, expect, test } from '@jest/globals'
 import { execSync } from 'child_process'
+import { dockerDepsSync } from 'docker-deps'
 import { existsSync, rmSync } from 'fs'
 import { resolve } from 'path'
 

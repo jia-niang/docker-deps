@@ -1,5 +1,5 @@
-import { dockerDepsSync } from '../dist/index'
 import { afterEach, describe, expect, jest, test } from '@jest/globals'
+import { dockerDepsSync } from 'docker-deps'
 import { existsSync, rmSync } from 'fs'
 import { resolve } from 'path'
 

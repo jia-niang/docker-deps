@@ -9,6 +9,13 @@
 
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
 
+  "importOrder": [
+    "^@?[a-zA-Z]+.+",
+    "^@/(?!.*\\.(css|scss|less)$)",
+    "^\\.\\.?/(?!.*.(css|scss|less)$)",
+    "^.(?!(css|scss|less)$)[^.]*$",
+    "(.css|.scss|.less)$"
+  ],
   "importOrderSeparation": true,
   "importOrderSortSpecifiers": false,
   "importOrderGroupNamespaceSpecifiers": false
