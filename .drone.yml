@@ -1,8 +1,6 @@
 kind: pipeline
-name: default
-
-workspace:
-  path: /source
+name: check-and-test
+type: docker
 
 volumes:
   - name: pnpm-cache
@@ -37,21 +35,51 @@ steps:
     commands:
       - npm run test
 
+---
+kind: pipeline
+name: publish
+type: docker
+
+volumes:
+  - name: pnpm-cache
+    host:
+      path: /root/.pnpm-cache
+
+trigger:
+  ref:
+    - refs/heads/main
+    - refs/tags/*
+
+steps:
+  - name: install
+    image: node:20.13.0
+    volumes:
+      - name: pnpm-cache
+        path: /source/.pnpm-store
+    commands:
+      - npm i -g pnpm
+      - pnpm i
+    environment:
+      HUSKY: 0
+
+  - name: build
+    image: node:20.13.0
+    commands:
+      - npm run build
+
   - name: auth
     image: robertstettner/drone-npm-auth
     settings:
       token:
         from_secret: NPM_TOKEN
     when:
-      ref:
-        - refs/heads/main
-        - refs/tags/v*
+      event:
+        - tag
 
   - name: publish
     image: node:20.13.0
     commands:
       - npm publish
     when:
-      ref:
-        - refs/heads/main
-        - refs/tags/v*
+      event:
+        - tag
