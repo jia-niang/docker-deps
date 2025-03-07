@@ -1,6 +1,6 @@
 {
   "name": "docker-deps",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Extract the minimal dependency definition files needed to build Docker image, also compatible with monorepo.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -28,9 +28,6 @@
     "deps",
     "Dependencies"
   ],
-  "engines": {
-    "node": "20 || >=22"
-  },
   "author": "jia-niang <1@paperplane.cc>",
   "license": "MIT",
   "repository": {
@@ -56,12 +53,12 @@
     "@trivago/prettier-plugin-sort-imports": "^5.2.1",
     "@types/node": "^22.10.5",
     "babel-jest": "^29.7.0",
-    "commander": "^13.0.0",
+    "commander": "^10.0.1",
     "commitizen": "^4.3.1",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.2.1",
-    "glob": "^11.0.1",
+    "glob": "^10.4.5",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
     "inquirer": "^9.3.7",
