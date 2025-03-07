@@ -45,7 +45,7 @@ steps:
     when:
       ref:
         - refs/heads/main
-        - efs/tags/v*
+        - refs/tags/v*
 
   - name: publish
     image: node:20.13.0
@@ -54,4 +54,4 @@ steps:
     when:
       ref:
         - refs/heads/main
-        - efs/tags/v*
+        - refs/tags/v*
