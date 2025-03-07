@@ -2,6 +2,9 @@ kind: pipeline
 name: check-and-test
 type: docker
 
+workspace:
+  path: /source
+
 volumes:
   - name: pnpm-cache
     host:
@@ -40,6 +43,9 @@ kind: pipeline
 name: publish
 type: docker
 
+workspace:
+  path: /source
+
 volumes:
   - name: pnpm-cache
     host:
@@ -61,11 +67,17 @@ steps:
       - pnpm i
     environment:
       HUSKY: 0
+    when:
+      event:
+        - tag
 
   - name: build
     image: node:20.13.0
     commands:
       - npm run build
+    when:
+      event:
+        - tag
 
   - name: auth
     image: robertstettner/drone-npm-auth
