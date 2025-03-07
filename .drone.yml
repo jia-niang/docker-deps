@@ -45,6 +45,9 @@ steps:
     when:
       branch:
         - main
+      tag:
+        include:
+          - v*
 
   - name: publish
     image: node:20.13.0
@@ -53,3 +56,6 @@ steps:
     when:
       branch:
         - main
+      tag:
+        include:
+          - v*
