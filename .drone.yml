@@ -43,19 +43,15 @@ steps:
       token:
         from_secret: NPM_TOKEN
     when:
-      branch:
-        - main
-      tag:
-        include:
-          - v*
+      ref:
+        - refs/heads/main
+        - efs/tags/v*
 
   - name: publish
     image: node:20.13.0
     commands:
       - npm publish
     when:
-      branch:
-        - main
-      tag:
-        include:
-          - v*
+      ref:
+        - refs/heads/main
+        - efs/tags/v*
